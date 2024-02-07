@@ -1,4 +1,5 @@
 {
-  "name": "AzureCommunicationUIDemoApp",
-  "displayName": "AzureCommunicationUIDemoApp"
+  "appNameAndroid": "PatientVerifi",
+  "appNameIOS": "PatientVerifi",
+  "displayName": "PatientVerifi"
 }

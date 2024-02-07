@@ -30,10 +30,15 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'AzureCommunicationUIDemoApp' do
+target 'PatientVerifi' do
   use_frameworks!
   pod 'AzureCommunicationUICalling', '1.4.0'
-
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'react-native-incode-sdk', :path => '../node_modules/react-native-incode-sdk/ios'
+  # pod 'ZoomSDK', '5.14.11.8690'
   
   config = use_native_modules!
 
@@ -54,7 +59,7 @@ target 'AzureCommunicationUIDemoApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'AzureCommunicationUIDemoAppTests' do
+  target 'PatientVerifiTests' do
     inherit! :complete
     # Pods for testing
   end

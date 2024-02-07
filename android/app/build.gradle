@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 
@@ -139,12 +140,13 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.azurecommunicationuidemoapp"
+        applicationId "com.PatientVerifi"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
-    }
+        }
 splits {
         abi {
             reset()
@@ -225,6 +227,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
+
+    implementation 'com.incode.sdk:core-light:2.5.1'
+    implementation 'com.incode.sdk:model-mask-detection:2.0.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+    // implementation 'com.github.zoom-us-community:jitpack-zoom-us:5.16.10.17706'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
