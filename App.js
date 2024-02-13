@@ -44,7 +44,7 @@ import {
   getCustomerData,
   getTeamsData,
   selfieVerificationApi,
-  updateMeetingStatus,
+  // updateMeetingStatus,
 } from './src/redux/auth/apis';
 import AppointmentDetails from './src/screens/AppointmentDetails';
 import AudioVerification from './src/screens/AudioVerification';
@@ -70,8 +70,6 @@ const AppContainer = () => {
   const audioAuthenticate = isAudioAuthenticate();
   const incodeAuthenticate = isIncodeAuthenticate();
 
-  const meetingInfo = useSelector(state => state.auth?.meetingData);
-
   const showNotification = message => {
     console.log('============= message =============');
     console.log(message);
@@ -96,21 +94,22 @@ const AppContainer = () => {
   };
 
   const joinMeeting = async (meetingId, password, userDetails) => {
+    const meetingData = store.getState().auth.meetingData;
     try {
       const teamsData = await getTeamsData();
-      if (!teamsData) {
+      if (!teamsData || !meetingData) {
         return null;
       }
       await RNAzureCommunicationUICalling.startCallComposite(
         // local options
         {
-          displayName: meetingInfo?.userName,
-          title: meetingInfo?.title,
-          subtitle: meetingInfo?.meetingDescription,
+          displayName: meetingData.userName,
+          title: meetingData.title,
+          subtitle: meetingData.meetingDescription,
         },
         null,
         // remote options
-        {token: teamsData.token, meeting: meetingInfo?.joinUrl},
+        {token: teamsData.token, meeting: meetingData.joinUrl},
         null,
         // localization options
         {locale: 'en', layout: false},
