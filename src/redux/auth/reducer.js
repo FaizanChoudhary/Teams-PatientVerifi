@@ -97,7 +97,7 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, imageUrls: payload};
 
     case LOG_OUT:
-      return INITIAL_STATE;
+      return {...INITIAL_STATE};
 
     case MEETING_DATA:
       return {...state, meetingData: payload};
