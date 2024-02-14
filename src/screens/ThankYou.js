@@ -61,30 +61,29 @@ const ThankYou = route => {
                 alignSelf: 'center',
                 textAlign: 'justify',
               }}>
-              By using the PatientVerifi-Zoom mobile app, you agree to the
-              following terms and conditions. PatientVerifi-Zoom is provided on
-              an "as-is" and "as-available" basis, without warranties of any
-              kind. We reserve the right to modify, suspend, or discontinue the
-              app at any time without notice. PatientVerifi-Zoom is intended for
-              use as an identity verification solution and should not be used
-              for any unlawful purposes. You are responsible for complying with
-              all applicable laws and regulations. The PatientVerifi-Zoom app
-              uses various technologies, including voice biometrics and liveness
-              detection, to verify your identity. By using the app, you consent
-              to the collection, use, and processing of your personal
-              information and voiceprints for this purpose. We take the security
-              and privacy of your personal information seriously and use
-              industry-standard security measures to protect it. However, we
-              cannot guarantee the security of your data and are not responsible
-              for any unauthorized access, disclosure, or loss of data. By using
-              the PatientVerifi-Zoom mobile app, you agree to indemnify and hold
-              us harmless from any claims, damages, or liabilities arising from
-              your use of the app or your violation of these terms and
-              conditions. We may update these terms and conditions at any time,
-              and your continued use of the PatientVerifi-Zoom app after any
-              changes will constitute your acceptance of the updated terms. If
-              you do not agree to these terms and conditions, please do not use
-              the PatientVerifi-Zoom app.
+              By using the PatientVerifi mobile app, you agree to the following
+              terms and conditions. PatientVerifi is provided on an "as-is" and
+              "as-available" basis, without warranties of any kind. We reserve
+              the right to modify, suspend, or discontinue the app at any time
+              without notice. PatientVerifi is intended for use as an identity
+              verification solution and should not be used for any unlawful
+              purposes. You are responsible for complying with all applicable
+              laws and regulations. The PatientVerifi app uses various
+              technologies, including voice biometrics and liveness detection,
+              to verify your identity. By using the app, you consent to the
+              collection, use, and processing of your personal information and
+              voiceprints for this purpose. We take the security and privacy of
+              your personal information seriously and use industry-standard
+              security measures to protect it. However, we cannot guarantee the
+              security of your data and are not responsible for any unauthorized
+              access, disclosure, or loss of data. By using the PatientVerifi
+              mobile app, you agree to indemnify and hold us harmless from any
+              claims, damages, or liabilities arising from your use of the app
+              or your violation of these terms and conditions. We may update
+              these terms and conditions at any time, and your continued use of
+              the PatientVerifi app after any changes will constitute your
+              acceptance of the updated terms. If you do not agree to these
+              terms and conditions, please do not use the PatientVerifi app.
             </Text>
           </View>
           <View
