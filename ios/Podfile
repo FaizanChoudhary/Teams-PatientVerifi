@@ -38,7 +38,6 @@ target 'PatientVerifi' do
   pod 'GoogleUtilities', :modular_headers => true
   pod 'FirebaseCoreInternal', :modular_headers => true
   pod 'react-native-incode-sdk', :path => '../node_modules/react-native-incode-sdk/ios'
-  # pod 'ZoomSDK', '5.14.11.8690'
   
   config = use_native_modules!
 
