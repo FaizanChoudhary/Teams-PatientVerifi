@@ -7,12 +7,12 @@ import {
   Text,
   ActivityIndicator,
 } from 'react-native';
-import {useDispatch} from 'react-redux';
+// import {useDispatch} from 'react-redux';
 
 import {logoutApi} from '../redux/auth/apis';
 
 const LogoutModal = forwardRef((props, ref) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [modalShow, setModalShow] = useState(false);
   const [showLoading, setShowLoading] = useState(false);

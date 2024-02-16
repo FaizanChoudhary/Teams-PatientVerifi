@@ -84,7 +84,11 @@ const AppointmentDetails = ({
                 justifyContent: 'center',
               }}>
               <Image
-                source={images.man}
+                source={
+                  meet?.doctor?.pic_url
+                    ? {uri: meet.doctor.pic_url}
+                    : images.man
+                }
                 resizeMode="contain"
                 style={{
                   width: 85,

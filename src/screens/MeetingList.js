@@ -205,7 +205,11 @@ const MeetingList = () => {
                         justifyContent: 'center',
                       }}>
                       <Image
-                        source={images.man}
+                        source={
+                          meet?.doctor?.pic_url
+                            ? {uri: meet.doctor.pic_url}
+                            : images.man
+                        }
                         style={{width: 35, height: 35}}
                         resizeMode="contain"
                       />

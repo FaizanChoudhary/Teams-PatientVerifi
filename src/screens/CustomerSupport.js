@@ -11,7 +11,7 @@ import {
   LogBox,
   AppState,
 } from 'react-native';
-import moment from 'moment/moment';
+import moment from 'moment';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 

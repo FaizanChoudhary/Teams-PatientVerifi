@@ -64,7 +64,7 @@ export const storeIncodeInfoApi = async (
   try {
     const customerInterviewId = store.getState().auth?.customerInterviewId;
     const customerToken = store.getState().auth?.customerToken;
-    const faceMatchInfo = store.getState().auth?.faceMatchInfo;
+    // const faceMatchInfo = store.getState().auth?.faceMatchInfo;
     const customerUUID = store.getState().auth?.customerUUID;
     const frontIDInfo = store.getState().auth?.frontIDInfo;
     const backIDInfo = store.getState().auth?.backIDInfo;

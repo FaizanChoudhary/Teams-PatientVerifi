@@ -1,23 +1,27 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  PermissionsAndroid,
   ActivityIndicator,
+  Image,
+  PermissionsAndroid,
+  Platform,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import AudioRecord from 'react-native-audio-record';
-import {useNavigation} from '@react-navigation/native';
-import {check, request, PERMISSIONS} from 'react-native-permissions';
+import {PERMISSIONS, check, request} from 'react-native-permissions';
+import Snackbar from 'react-native-snackbar';
 
-import images from '../constants/images';
-import Header from '../components/Header';
-import {SERVER_URL} from '../utils/baseUrl';
-import {userDetail} from '../redux/auth/selectors';
+import {useDispatch, useSelector} from 'react-redux';
 import Button from '../components/Button';
-import {useSelector} from 'react-redux';
+import Header from '../components/Header';
+import images from '../constants/images';
+import {logout} from '../redux/auth/actions';
+import {userDetail} from '../redux/auth/selectors';
+import {SERVER_URL} from '../utils/baseUrl';
 
 const AudioVerification = () => {
   const user = userDetail();
@@ -26,8 +30,9 @@ const AudioVerification = () => {
   const [showLoading, setShowLoading] = useState(false);
   const [verificationStatusLoading, setVerificationStatusLoading] =
     useState(true);
-
   const [audioFile, setAudioFile] = useState('');
+
+  const dispatch = useDispatch();
   const imageUrls = useSelector(state => state.auth?.imageUrls);
   const meetingInfo = useSelector(state => state.auth?.meetingData);
   const meetingId = meetingInfo?.meetingId;
@@ -166,7 +171,7 @@ const AudioVerification = () => {
         setVerificationStatusLoading(false);
       }
     })();
-  }, [user, meetingId]);
+  }, [user, meetingId, navigation]);
 
   useEffect(() => {
     if (recordState)
