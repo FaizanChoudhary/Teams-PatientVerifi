@@ -3,7 +3,9 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
+  Alert,
   Image,
+  Linking,
   PermissionsAndroid,
   Platform,
   ScrollView,
@@ -65,7 +67,7 @@ const AudioVerification = () => {
           AudioRecord.init(AUDIO_OPTIONS);
           AudioRecord.start();
         } else {
-          console.log('All required permissions not granted');
+          console.log('Record audio permission not granted on Android');
           return;
         }
       } catch (err) {
@@ -78,11 +80,29 @@ const AudioVerification = () => {
         AudioRecord.init(AUDIO_OPTIONS);
         AudioRecord.start();
       } else {
+        console.log('Microphone permission not granted on iOS');
         request(PERMISSIONS.IOS.MICROPHONE).then(result => {
           console.log('result =>', result);
           if (result === 'granted') {
             AudioRecord.init(AUDIO_OPTIONS);
             AudioRecord.start();
+          } else {
+            Alert.alert(
+              'Permission Required',
+              'Please manually grant microphone permission from Settings.',
+              [
+                {
+                  text: 'Cancel',
+                  onPress: () => console.log('Cancel Pressed'),
+                  style: 'cancel',
+                },
+                {
+                  text: 'Open Settings',
+                  onPress: () => Linking.openSettings(),
+                },
+              ],
+              {cancelable: false},
+            );
           }
         });
       }

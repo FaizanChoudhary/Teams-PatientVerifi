@@ -23,4 +23,7 @@ RCT_EXTERN_METHOD(getSupportedLocales:(RCTPromiseResolveBlock)resolve
 
 RCT_EXTERN_METHOD(getDebugInfo:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(dismiss) // Add this line to declare the dismiss method
+                  
 @end

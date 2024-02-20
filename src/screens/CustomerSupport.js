@@ -1,27 +1,26 @@
-import React, {useState, useRef, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StatusBar,
-  Image,
-  ScrollView,
-  FlatList,
-  TouchableOpacity,
-  ActivityIndicator,
-  LogBox,
-  AppState,
-} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  ActivityIndicator,
+  AppState,
+  FlatList,
+  Image,
+  LogBox,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
-import images from '../constants/images';
+import Button from '../components/Button';
 import Header from '../components/Header';
 import LogoutModal from '../components/LogoutModal';
-import {getCustomerHistory} from '../redux/auth/apis';
-import Button from '../components/Button';
-import {SERVER_URL} from '../utils/baseUrl';
-import {setImageUrls} from '../redux/auth/actions';
+import images from '../constants/images';
+import { setImageUrls } from '../redux/auth/actions';
+import { getCustomerHistory } from '../redux/auth/apis';
+import { SERVER_URL } from '../utils/baseUrl';
 
 const CustomerSupport = () => {
   const [showLoading, setShowLoading] = useState(false);
@@ -34,7 +33,7 @@ const CustomerSupport = () => {
   const imageUrls = useSelector(state => state.auth?.imageUrls);
 
   useEffect(() => {
-    AppState.addEventListener('change', handleChange);
+    const subscription =AppState.addEventListener('change', handleChange);
 
     LogBox.ignoreAllLogs();
     const unsubscribe = navigation.addListener('focus', () => {
@@ -46,7 +45,7 @@ const CustomerSupport = () => {
     });
     return () => {
       unsubscribe;
-      AppState.removeEventListener('change', handleChange);
+      subscription.remove();
     };
   }, [userInfo, navigation]);
 
