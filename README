@@ -1,0 +1,29 @@
+### Known Issues with React Native Compatibility
+
+We encountered the following issues when integrating the Azure Communication Services UI Library with React Native across different versions:
+
+#### iOS Issue (React Native 0.69.4)
+
+- **Problem**: During pod installation on iOS, an error occurs:
+  ```
+  [!] Invalid Podfile file: undefined method `prepare_react_native_project!' for #Pod::Podfile:0x0000000156297d98.
+  ```
+- **Cause**: This issue stems from compatibility concerns with React Native version 0.69.4.
+
+#### Android Issue (React Native 0.72.6)
+
+- **Problem**: Android has compatibility issues on React Native version 0.72.6.
+
+#### Current Challenge (React Native 0.69.4)
+
+- **Outcome**: With React Native 0.69.4, Android functions as expected, but iOS pod installations fail. The required pods seem compatible only with React Native version 0.72.6.
+
+### Related GitHub Issue
+
+For more details, please refer to the related GitHub issue: [Azure Communication Services UI Library React Native Issue #31](https://github.com/Azure-Samples/communication-services-ui-library-react-native/issues/31).
+
+### Next Steps
+
+We are hopeful that future updates to the library will resolve these compatibility challenges. For now, we suggest monitoring updates and experimenting with different React Native versions if possible.
+
+Best of luck to those working with similar configurations!
